@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Rock Paper Scissor</title>
   <style>
     body{
       color:white;
@@ -99,13 +99,13 @@
     .score1{
       font-family: arial;
       font-weight: 800;
-      margin-left: 50px;
+      margin-left: 20px;
       margin-top: 50px;
     }
     .score2{
       font-family: arial;
       font-weight: 800;
-      margin-left: 50px;
+      margin-left: 20px;
     }
 
     .emoji{
@@ -122,7 +122,43 @@
       margin-left: 0px;
       
 
+
     }
+
+    .reset{
+      height:50px;
+      background-color: transparent;
+      border:none;
+      margin-left: 50px;
+      margin-top: 10px;
+
+
+    }
+
+    .p-reset{
+      font-size: 16px;
+      font-weight: bold;
+      font-family: arial;
+      margin-top: 0;
+      margin-left: 63px;
+
+    }
+
+    .userscore{
+      font-family: arial;
+      font-weight: 800;
+      margin-left: 20px;
+    }
+
+    
+
+    .compscore{
+      font-family: arial;
+      font-weight: 800;
+      margin-left: 20px;
+    }
+
+    
 
     
 
@@ -170,9 +206,20 @@
     <p class="p-paper">Paper</p>
     <p class="p-scissor">Scissor</p>
   </div>
+
+  <button class="scissor" 
+  onclick="reset();">
+    <img class="reset" src="/emoji/reset1.png">
+  </button>
+  <p class="p-reset">reset</p>
   
   <p class="result">
   </p>
+
+  <p class="userscore">your score : 
+  </p>
+  <p class="compscore">compscore :</p>
+
 
   <p class="score1">
   </p>
@@ -181,6 +228,31 @@
   </p>
 
 <script>
+
+  const score={
+    cwin:0,
+    uwin:0
+    
+  }
+
+  
+  function reset(){
+    let a=document.querySelector('.score1');
+      a.innerHTML='';
+      let c=document.querySelector('.score2');
+      c.innerHTML='';
+      
+      let b=document.querySelector('.result');
+      b.innerHTML='';
+
+      score.uwin=0;
+      score.cwin=0;
+      let d=document.querySelector('.userscore');
+      d.innerHTML=`your score : `;
+      let e=document.querySelector('.compscore');
+      e.innerHTML=`comp score : `;
+
+  }
 
   
   let c_move="";
@@ -223,6 +295,23 @@
       let b=document.querySelector('.result');
       b.innerHTML=` ${fresult} `;
 
+      if(fresult === 'WON'){
+        score.uwin+=1;
+        let d=document.querySelector('.userscore');
+        d.innerHTML=`your score :${score.uwin}  `;
+       }
+
+      else if(fresult === 'LOST'){
+        score.cwin+=1;
+        let e=document.querySelector('.compscore');
+        e.innerHTML=`comp score :${score.cwin}  `;
+       }
+      
+
+
+      
+
+
 
       
     }
@@ -248,6 +337,18 @@
       let b=document.querySelector('.result');
       b.innerHTML=` ${fresult} `;
 
+      if(fresult === 'WON'){
+        score.uwin+=1;
+        let d=document.querySelector('.userscore');
+        d.innerHTML=`your score :${score.uwin}  `;
+       }
+
+      else if(fresult === 'LOST'){
+        score.cwin+=1;
+        let e=document.querySelector('.compscore');
+        e.innerHTML=`comp score :${score.cwin}  `;
+       }
+
 
       
     }
@@ -272,6 +373,17 @@
       
       let b=document.querySelector('.result');
       b.innerHTML=` ${fresult} `;
+      if(fresult === 'WON'){
+        score.uwin+=1;
+        let d=document.querySelector('.userscore');
+        d.innerHTML=`your score :${score.uwin}  `;
+       }
+
+      else if(fresult === 'LOST'){
+        score.cwin+=1;
+        let e=document.querySelector('.compscore');
+        e.innerHTML=`comp score :${score.cwin}  `;
+       }
 
       
     }
