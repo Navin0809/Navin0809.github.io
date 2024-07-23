@@ -42,6 +42,16 @@
 
     }
 
+    .shake {
+    animation: shake 1s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+      20%, 40%, 60%, 80% { transform: translateX(10px); }
+    }
+
     .scissor{
      
       border:none;
@@ -229,14 +239,28 @@
 
 <script>
 
-  const score={
-    cwin:0,
-    uwin:0
-    
-  }
+ let a=localStorage.getItem('scores');
+ let score=JSON.parse(a);
+  let g=document.querySelector('.userscore');
+  g.innerHTML=`your score : ${score.uwin}`;
+  let h=document.querySelector('.compscore');
+  h.innerHTML=`comp score : ${score.cwin} `;
+
+
+
 
   
   function reset(){
+    const button = document.querySelector('.reset');
+
+        button.addEventListener('click', function() {
+          button.classList.add('shake');
+          
+          // Remove the 'shake' class after the animation completes
+          setTimeout(function() {
+            button.classList.remove('shake');
+          }, 300); // 1000 milliseconds = 1 second (duration of the animation)
+        });
     let a=document.querySelector('.score1');
       a.innerHTML='';
       let c=document.querySelector('.score2');
@@ -248,9 +272,11 @@
       score.uwin=0;
       score.cwin=0;
       let d=document.querySelector('.userscore');
-      d.innerHTML=`your score : `;
+      d.innerHTML=`your score : ${score.uwin} `;
       let e=document.querySelector('.compscore');
-      e.innerHTML=`comp score : `;
+      e.innerHTML=`comp score : ${score.cwin} `;
+
+      localStorage.setItem('scores',JSON.stringify(score));
 
   }
 
@@ -306,6 +332,20 @@
         let e=document.querySelector('.compscore');
         e.innerHTML=`comp score :${score.cwin}  `;
        }
+
+       localStorage.setItem('scores',JSON.stringify(score));
+
+       const button = document.querySelector('.rock');
+
+        button.addEventListener('click', function() {
+          button.classList.add('shake');
+          
+          // Remove the 'shake' class after the animation completes
+          setTimeout(function() {
+            button.classList.remove('shake');
+          }, 300); // 1000 milliseconds = 1 second (duration of the animation)
+        });
+
       
 
 
@@ -317,6 +357,16 @@
     }
 
     else if(n==='paper'){
+      const button = document.querySelector('.paper');
+
+        button.addEventListener('click', function() {
+          button.classList.add('shake');
+          
+          // Remove the 'shake' class after the animation completes
+          setTimeout(function() {
+            button.classList.remove('shake');
+          }, 1000); // 1000 milliseconds = 1 second (duration of the animation)
+        });
       if(c_move === 'paper'){
         fresult='TIE';
       }
@@ -348,12 +398,25 @@
         let e=document.querySelector('.compscore');
         e.innerHTML=`comp score :${score.cwin}  `;
        }
+      
+       localStorage.setItem('scores',JSON.stringify(score));
+
 
 
       
     }
 
     if(n==='scissor'){
+      const button = document.querySelector('.scissor');
+
+        button.addEventListener('click', function() {
+          button.classList.add('shake');
+          
+          // Remove the 'shake' class after the animation completes
+          setTimeout(function() {
+            button.classList.remove('shake');
+          }, 300); // 1000 milliseconds = 1 second (duration of the animation)
+        });
       if(c_move === 'scissor'){
         fresult='TIE';
       }
@@ -385,7 +448,8 @@
         e.innerHTML=`comp score :${score.cwin}  `;
        }
 
-      
+       localStorage.setItem('scores',JSON.stringify(score));
+
     }
 
 
