@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/todo.js"></script>
+  <Style>
+    .output{
+      display:grid;
+      grid-template-columns: 5fr 3fr 2fr;
+      column-gap: 15px;
+      margin-top: 30px;
+      row-gap: 15px;
+      
+
+    }
+
+    .input,.date{
+      border: none;
+      border-radius: 50px;
+      padding:5px;
+      margin-right: 5px;
+    }
+    .button{
+      background-color: greenyellow;
+      border: none;
+      border-radius: 15px;
+      padding:5px;
+      margin-left: 30px;
+    }
+  </Style>
+  
+  
+</head>
+<body style="background-color:black;color:white;margin-left: 30px;font-family: arial;font-weight: bold;">
+
+
+  <h style="
+  display: block;
+  font-weight: bold;
+  font-family: arial;
+  font-size: 50px;
+  ">TODO</h>
+
+  <h style="
+  display: block;
+  font-weight: bold;
+  font-family: arial;
+  font-size: 50px;
+  margin-bottom: 30px;
+  ">LIST</h>
+  
+  
+      <input class="input" placeholder="Enter text" onkeydown="
+    if(event.key==='Enter'){
+      array();
+    }
+    ">
+   
+      <input class="date" type="date">
+    
+      <button class="button" onclick="
+       array();
+       ">ADD</button>
+   
+    
+
+
+  <div class="output">
+
+  </div>
+
+ 
+
+
+  
+</body>
+</html>
